@@ -67,7 +67,7 @@ if dni:
     st.write(geo_json)
     import numpy as np
 
-    g = geocoder.ip('200.41.127.18')
+    g = geocoder.ip('me')
     lat_ad=g.latlng[0]
     lon_ad=g.latlng[1]
 
@@ -75,7 +75,7 @@ if dni:
     #st.table(df)
     st.write(latitude)
     st.write(longitude)
-    st.write('-34.6000841,-58.3916729')
+    st.write('-34.6000841,-58.3916729,200.41.127.18')
     ubi=[latitude,longitude]
     m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
 
