@@ -44,30 +44,41 @@ scopes = ["https://spreadsheets.google.com/feeds",
                 "https://www.googleapis.com/auth/drive",
                 "https://www.googleapis.com/auth/drive"] 
 cred = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scopes)
+gclient = authorize(cred)
+sheet2 = gclient.open('Alumnos').worksheet('usuarios')
 from googleapiclient.discovery import build
 import requests
 import json
+dni=st.text_input("DNI")
+if dni:
+    cell = sheet2.find(dni) 
+    row_number = cell.row
 
-send_url = "http://api.ipstack.com/200.41.127.18?access_key=c4db03018a0162547aaabccbd952b16f"
-geo_req = requests.get(send_url)
-geo_json = json.loads(geo_req.text)
-latitude = geo_json['latitude']
-longitude = geo_json['longitude']
-city = geo_json['city']
-st.write(geo_json)
-import numpy as np
+    nombre=sheet2.acell('C'+str(row_number)).value
+    dni=sheet2.acell('E'+str(row_number)).value
+    celu=sheet2.acell('F'+str(row_number)).value 
+    mail= sheet2.acell('G'+str(row_number)).value 
+    send_url = "http://api.ipstack.com/200.41.127.18?access_key=c4db03018a0162547aaabccbd952b16f"
+    geo_req = requests.get(send_url)
+    geo_json = json.loads(geo_req.text)
+    latitude = geo_json['latitude']
+    longitude = geo_json['longitude']
+    city = geo_json['city']
+    st.write(geo_json)
+    import numpy as np
 
-g = geocoder.ip('me')
-lat_ad=g.latlng[0]
-lon_ad=g.latlng[1]
+    g = geocoder.ip('me')
+    lat_ad=g.latlng[0]
+    lon_ad=g.latlng[1]
 
-df=pd.DataFrame(g.latlng)
-st.table(df)
-st.write(latitude)
-st.write(longitude)
-ubi=[latitude,longitude]
-m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
+    df=pd.DataFrame(g.latlng)
+    #st.table(df)
+    st.write(latitude)
+    st.write(longitude)
+    ubi=[latitude,longitude]
+    m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
 
 
-#folium.Marker(location=ubi, popup =  'Bco. Francés').add_to(m)
-folium.CircleMarker(location=ubi,radius=30, fill_color='green',tooltip=folium.Tooltip('Bco. Francés', permanent=True)).add_to(m) 
+    #folium.Marker(location=ubi, popup =  nombre).add_to(m)
+    folium.CircleMarker(location=ubi,radius=30, fill_color='green',tooltip=folium.Tooltip(nombre, permanent=True)).add_to(m) 
+    folium_static(m)
