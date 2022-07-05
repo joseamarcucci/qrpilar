@@ -76,7 +76,7 @@ if dni:
     st.write(latitude)
     st.write(longitude)
     
-    ubi=['-34.4351289,-58.9266003']
+    ubi=[-34.4351289,-58.9266003]
     m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
 
 
