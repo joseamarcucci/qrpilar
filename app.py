@@ -75,6 +75,7 @@ if dni:
     #st.table(df)
     st.write(latitude)
     st.write(longitude)
+    st.write'(-34.6000841,-58.3916729)
     ubi=[latitude,longitude]
     m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
 
@@ -82,3 +83,24 @@ if dni:
     #folium.Marker(location=ubi, popup =  nombre).add_to(m)
     folium.CircleMarker(location=ubi,radius=30, fill_color='green',tooltip=folium.Tooltip(nombre, permanent=True)).add_to(m) 
     folium_static(m)
+import requests
+
+
+def get_ip():
+    response = requests.get('https://api64.ipify.org?format=json').json()
+    return response["ip"]
+
+
+def get_location():
+    ip_address = get_ip()
+    response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
+    location_data = {
+        "ip": ip_address,
+        "city": response.get("city"),
+        "region": response.get("region"),
+        "country": response.get("country_name")
+    }
+    return location_data
+
+
+st.write(get_location())
