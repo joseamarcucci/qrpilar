@@ -1,3 +1,4 @@
+
 import streamlit as st
 st.set_page_config(
 page_title="QR para Registro Docentes",
@@ -22,7 +23,8 @@ from mailjet_rest import Client
 import urllib.request
 from st_aggrid import AgGrid
 from st_aggrid.grid_options_builder import GridOptionsBuilder
-
+from streamlit_folium import folium_static
+import folium
 import plotly.express as px
 from streamlit_pages.streamlit_pages import MultiPage
 
@@ -63,3 +65,9 @@ df=pd.DataFrame(g.latlng)
 st.table(df)
 st.write(latitude)
 st.write(longitude)
+ubi=[latitude,longitude]
+m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
+
+
+#folium.Marker(location=ubi, popup =  'Bco. Francés').add_to(m)
+folium.CircleMarker(location=ubi,radius=30, fill_color='green',tooltip=folium.Tooltip('Bco. Francés', permanent=True)).add_to(m) 
