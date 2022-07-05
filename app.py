@@ -75,7 +75,7 @@ if dni:
     #st.table(df)
     st.write(latitude)
     st.write(longitude)
-    st.write'(-34.6000841,-58.3916729)
+    st.write('-34.6000841,-58.3916729')
     ubi=[latitude,longitude]
     m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
 
