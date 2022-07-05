@@ -67,7 +67,7 @@ if dni:
     st.write(geo_json)
     import numpy as np
 
-    g = geocoder.ip('me')
+    g = geocoder.ip('200.41.127.18')
     lat_ad=g.latlng[0]
     lon_ad=g.latlng[1]
 
