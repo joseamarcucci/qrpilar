@@ -1,8 +1,7 @@
-
 import streamlit as st
 st.set_page_config(
-page_title="Envios CLAYSS",
-page_icon="https://noticias.clayss.org/sites/default/files/favicon.ico.png",
+page_title="QR para Registro Docentes",
+page_icon="https://webinars.usal.edu.ar/sites/default/files/favicon.ico",
 layout="wide",
 initial_sidebar_state="expanded",)
 import argparse 
@@ -62,4 +61,5 @@ lon_ad=g.latlng[1]
 
 df=pd.DataFrame(g.latlng)
 st.table(df)
-st.write(g.latlng)
+st.write(latitude)
+st.write(longitude)
