@@ -77,7 +77,7 @@ if dni:
     st.write(longitude)
     
     ubi=[-34.4351289,-58.9266003]
-    m = folium.Map(location=ubi, zoom_start=12,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
+    m = folium.Map(location=ubi, zoom_start=19,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
 
 
     #folium.Marker(location=ubi, popup =  nombre).add_to(m)
