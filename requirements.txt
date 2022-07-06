@@ -26,8 +26,7 @@ Pillow
 pyftpdlib
 pybase64
 streamlit-aggrid
-streamlit_folium
-streamlit_pages
+
 extra_streamlit_components
 jwt
 bcrypt
