@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run nada.py
+web: sh setup.sh && streamlit run app.py
