@@ -45,7 +45,8 @@ scopes = ["https://spreadsheets.google.com/feeds",
                 "https://www.googleapis.com/auth/drive"] 
 cred = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scopes)
 gclient = authorize(cred)
-sheet2 = gclient.open('Alumnos').worksheet('usuarios')
+sheet2 = gclient.open('docentesp').worksheet('docentes')
+sheet3 = gclient.open('docentesp').worksheet('asistencia')
 from googleapiclient.discovery import build
 import requests
 import json
@@ -83,6 +84,7 @@ if dni:
     #folium.Marker(location=ubi, popup =  nombre).add_to(m)
     folium.CircleMarker(location=ubi,radius=30, fill_color='green',tooltip=folium.Tooltip(nombre, permanent=True)).add_to(m) 
     folium_static(m)
+    sheet3.append_row([nombre,dni,celu,mail,today])
 import requests
 
 
