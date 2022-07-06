@@ -29,7 +29,8 @@ import plotly.express as px
 from datetime import date
 from streamlit_pages.streamlit_pages import MultiPage
 today = date.today()
-today=today.strftime('%d-%m-%y')
+today=today.strftime('%d-%m-%y %H:%M:%S')
+
 
 import geocoder
 from bs4 import BeautifulSoup
@@ -70,7 +71,7 @@ st.markdown('<div style="text-align:left; border-bottom:1px solid #008357;border
 
 st.markdown('<div style="text-align:left; font-size:18px;font-family: Oswald">USAL Dirección de Logística y Servicios</div><br>', unsafe_allow_html=True)
 st.markdown('<div style="text-align:left; font-size:24px;border-bottom:1px solid #008357;font-family: Oswald"><b>CONTROL DE ACCESO DOCENTES</b></div><br>', unsafe_allow_html=True)
-#st.markdown('<div style="text-align:left; font-size:14px;border-bottom:1px solid #008357;font-family: Oswald;color:#e65100"><b>Horario de atención de 7 a 19 hs, las reservas se deben realizar con al menos 48 hs hábiles de antelación y dichas reservas se realizan únicamente online</b></div><br>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:left; font-size:14px;border-bottom:1px solid #008357;font-family: Oswald;color:#e65100"><b>'+today+'</b></div><br>', unsafe_allow_html=True)
 #st.write('<style>div.row-widget.stRadio> div{flex-direction:row;}</style>', unsafe_allow_html=True)
 dni=st.text_input("Ingresar DNI:")
 if dni:
@@ -88,7 +89,7 @@ if dni:
     latitude = geo_json['latitude']
     longitude = geo_json['longitude']
     city = geo_json['city']
-    st.write(geo_json)
+    #st.write(geo_json)
     import numpy as np
 
     g = geocoder.ip('me')
