@@ -1,4 +1,4 @@
-scikit-learn==0.24.2
+
 pandas==1.2.4
 geocoder
 matplotlib==3.4.2
@@ -32,5 +32,5 @@ streamlit_pages
 extra_streamlit_components
 jwt
 bcrypt
-qrcode
+
 
