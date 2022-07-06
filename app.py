@@ -30,7 +30,9 @@ from datetime import date
 from streamlit_pages.streamlit_pages import MultiPage
 today = date.today()
 today=today.strftime('%d-%m-%y %H:%M:%S')
-
+from datetime import timezone, datetime, timedelta
+d = datetime(2009, 4, 19, 21, 12, tzinfo=timezone(timedelta(hours=-2)))
+st.write(d.astimezone(timezone.utc).strftime('%Y-%m-%d %H:%M:%S.%f'))
 
 import geocoder
 from bs4 import BeautifulSoup
