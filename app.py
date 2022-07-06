@@ -31,8 +31,10 @@ from datetime import date
 from streamlit_pages.streamlit_pages import MultiPage
 today = date.today()
 today=today.strftime('%d-%m-%y')
-
-
+import pytz
+utc = pytz.utc
+utc.zone
+argentina = pytz.timezone('America/Argentina/Buenos_Aires')
 import geocoder
 from bs4 import BeautifulSoup
 
