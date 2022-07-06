@@ -68,7 +68,12 @@ st.image("https://entendiste.ar/mail/logousaltr.png")
 st.markdown('<link href="https://fonts.googleapis.com/css2?family=Oswald" rel="stylesheet"><style>.st-bg,.css-177yq5e, .st-bo,.st-bf,.st-b4,.st-b7,.st-be,.st-bi,.st-dq {font-family: Oswald, Arial, sans-serif;font-size:16px;}.css-1ekf893 {margin-bottom: -1rem;font-family: Oswald;}.css-1v0mbdj {margin-top: -60px;}body{font-family: "Oswald", Arial, sans-serif;}</style>', unsafe_allow_html=True)
 from datetime import timezone, datetime, timedelta
 dia=datetime.now(argentina).strftime('%A %d-%m-%Y %H:%M')
+dia=dia.replace('Monday','Lunes')
+dia=dia.replace('Tuesday','Martes')
 dia=dia.replace('Wednesday','Miércoles')
+dia=dia.replace('Thursday','Jueves')
+dia=dia.replace('Friday','Vierneses')
+dia=dia.replace('Saturday','Sábado')
 
 st.markdown('<div style="text-align:left; border-bottom:1px solid #008357;border-top:1px solid #008357;font-family: Oswald">CAMPUS NUESTRA SEÑORA DEL PILAR</div>', unsafe_allow_html=True)
 
