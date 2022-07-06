@@ -76,7 +76,7 @@ st.markdown('<div style="text-align:left; font-size:14px;border-bottom:1px solid
 #st.write('<style>div.row-widget.stRadio> div{flex-direction:row;}</style>', unsafe_allow_html=True)
 from datetime import timezone, datetime, timedelta
 os.environ["TZ"] = "UTC"
-st.write(datetime.datetime.now().strftime('%d-%m-%Y %H:%M'))
+st.write(datetime.now().strftime('%d-%m-%Y %H:%M'))
 
 dni=st.text_input("Ingresar DNI:")
 if dni:
