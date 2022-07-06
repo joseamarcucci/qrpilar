@@ -67,13 +67,14 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 st.image("https://entendiste.ar/mail/logousaltr.png")
 st.markdown('<link href="https://fonts.googleapis.com/css2?family=Oswald" rel="stylesheet"><style>.st-bg,.css-177yq5e, .st-bo,.st-bf,.st-b4,.st-b7,.st-be,.st-bi,.st-dq {font-family: Oswald, Arial, sans-serif;font-size:16px;}.css-1ekf893 {margin-bottom: -1rem;font-family: Oswald;}.css-1v0mbdj {margin-top: -60px;}body{font-family: "Oswald", Arial, sans-serif;}</style>', unsafe_allow_html=True)
 from datetime import timezone, datetime, timedelta
-
+dia=datetime.now(argentina).strftime('%A %d-%m-%Y %H:%M')
+dia=dia.replace('Wednesday','Miércoles')
 
 st.markdown('<div style="text-align:left; border-bottom:1px solid #008357;border-top:1px solid #008357;font-family: Oswald">CAMPUS NUESTRA SEÑORA DEL PILAR</div>', unsafe_allow_html=True)
 
 st.markdown('<div style="text-align:left; font-size:18px;font-family: Oswald">USAL Dirección de Logística y Servicios</div><br>', unsafe_allow_html=True)
 st.markdown('<div style="text-align:left; font-size:24px;border-bottom:1px solid #008357;font-family: Oswald"><b>CONTROL DE ACCESO DOCENTES</b></div><br>', unsafe_allow_html=True)
-st.markdown('<div style="text-align:left; font-size:14px;font-family: Oswald;color:#e65100"><b>'+datetime.now(argentina).strftime('%A %d-%m-%Y %H:%M')+'</b></div><br>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:left; font-size:14px;font-family: Oswald;color:#e65100"><b>'+dia+'</b></div><br>', unsafe_allow_html=True)
 #st.write('<style>div.row-widget.stRadio> div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
 
