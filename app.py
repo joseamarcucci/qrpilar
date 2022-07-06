@@ -58,6 +58,7 @@ if dni:
     row_number = cell.row
 
     nombre=sheet2.acell('C'+str(row_number)).value
+    apellido=sheet2.acell('D'+str(row_number)).value
     dni=sheet2.acell('E'+str(row_number)).value
     celu=sheet2.acell('F'+str(row_number)).value 
     mail= sheet2.acell('G'+str(row_number)).value 
@@ -86,7 +87,7 @@ if dni:
     #folium.Marker(location=ubi, popup =  nombre).add_to(m)
     folium.CircleMarker(location=ubi,radius=30, fill_color='green',tooltip=folium.Tooltip(nombre, permanent=True)).add_to(m) 
     folium_static(m)
-    sheet3.append_row([nombre,dni,celu,mail,today])
+    sheet3.append_row([today,nombre,apelliso,dni,celu,mail])
 import requests
 
 
