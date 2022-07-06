@@ -27,7 +27,39 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 import os
 import plotly.express as px
 from datetime import date
+st.markdown("""
 
+<style>
+.css-wmn9kq{
+    font-size: 0.8rem;
+    font-family: "Oswald";
+    text-align: left;
+    padding: 0.5rem;
+    line-height: 1.3;
+}
+.css-adptcx {display:none}
+.st-dv {
+    padding-left: 2px;
+    font-family: 'Oswald';
+}
+.st-dx {
+    padding-left: 8px;
+    font-family: 'Oswald';
+}
+.st-em {
+    vertical-align: middle;
+    font-family: 'Oswald';
+}
+.css-y37zgl {
+    font-size: 0.8rem;
+    font-family: "Oswald";
+    text-align: left;
+    padding: 0.5rem;
+    line-height: 1.3;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 import pytz
 utc = pytz.utc
