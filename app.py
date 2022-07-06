@@ -74,7 +74,7 @@ st.markdown('<div style="text-align:left; border-bottom:1px solid #008357;border
 
 st.markdown('<div style="text-align:left; font-size:18px;font-family: Oswald">USAL Dirección de Logística y Servicios</div><br>', unsafe_allow_html=True)
 st.markdown('<div style="text-align:left; font-size:24px;border-bottom:1px solid #008357;font-family: Oswald"><b>CONTROL DE ACCESO DOCENTES</b></div><br>', unsafe_allow_html=True)
-st.markdown('<div style="text-align:left; font-size:14px;border-bottom:1px solid #008357;font-family: Oswald;color:#e65100"><b>'+today+'</b></div><br>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:left; font-size:14px;font-family: Oswald;color:#e65100"><b>'+argentina+'</b></div><br>', unsafe_allow_html=True)
 #st.write('<style>div.row-widget.stRadio> div{flex-direction:row;}</style>', unsafe_allow_html=True)
 from datetime import timezone, datetime, timedelta
 
