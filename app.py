@@ -89,24 +89,3 @@ if dni:
     #folium_static(m)
     sheet3.append_row([today,nombre,apellido,dni,celu,mail])
     st.warning(nombre+' '+apellido+ 'su acceso ha sido registrado, gracias'
-import requests
-
-
-def get_ip():
-    response = requests.get('https://api64.ipify.org?format=json').json()
-    return response["ip"]
-
-
-def get_location():
-    ip_address = get_ip()
-    response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
-    location_data = {
-        "ip": ip_address,
-        "city": response.get("city"),
-        "region": response.get("region"),
-        "country": response.get("country_name")
-    }
-    return location_data
-
-
-#st.write(get_location())
