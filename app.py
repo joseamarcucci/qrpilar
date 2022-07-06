@@ -23,12 +23,11 @@ from mailjet_rest import Client
 import urllib.request
 from st_aggrid import AgGrid
 from st_aggrid.grid_options_builder import GridOptionsBuilder
-from streamlit_folium import folium_static
-import folium
+
 import os
 import plotly.express as px
 from datetime import date
-from streamlit_pages.streamlit_pages import MultiPage
+
 
 import pytz
 utc = pytz.utc
@@ -115,12 +114,7 @@ if dni:
       #st.write(longitude) 
 
       ubi=[-34.4351289,-58.9266003]
-      m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
 
-
-      #folium.Marker(location=ubi, popup =  nombre).add_to(m)
-      folium.CircleMarker(location=ubi,radius=30, fill_color='green',tooltip=folium.Tooltip(nombre, permanent=True)).add_to(m) 
-      #folium_static(m)
       sheet3.append_row([datetime.now(argentina).strftime('%d-%m-%Y %H:%M'),nombre,apellido,dni,celu,mail])
       st.warning(nombre+' '+apellido+ 'su acceso ha sido registrado, gracias')
     except gspread.exceptions.CellNotFound:
