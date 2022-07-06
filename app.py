@@ -86,8 +86,9 @@ if dni:
 
     #folium.Marker(location=ubi, popup =  nombre).add_to(m)
     folium.CircleMarker(location=ubi,radius=30, fill_color='green',tooltip=folium.Tooltip(nombre, permanent=True)).add_to(m) 
-    folium_static(m)
-    sheet3.append_row([today,nombre,apelliso,dni,celu,mail])
+    #folium_static(m)
+    sheet3.append_row([today,nombre,apellido,dni,celu,mail])
+    st.warning(nombre+ . '+apellido+ 'su acceso ha sido registrado, gracias'
 import requests
 
 
