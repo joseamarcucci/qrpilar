@@ -77,8 +77,8 @@ st.markdown('<div style="text-align:left; font-size:24px;border-bottom:1px solid
 st.markdown('<div style="text-align:left; font-size:14px;border-bottom:1px solid #008357;font-family: Oswald;color:#e65100"><b>'+today+'</b></div><br>', unsafe_allow_html=True)
 #st.write('<style>div.row-widget.stRadio> div{flex-direction:row;}</style>', unsafe_allow_html=True)
 from datetime import timezone, datetime, timedelta
-os.environ["TZ"] = "UTC"
-st.write(datetime.now().strftime('%d-%m-%Y %H:%M'))
+
+st.write(datetime.now(argentina).strftime('%d-%m-%Y %H:%M'))
 
 dni=st.text_input("Ingresar DNI:")
 if dni:
