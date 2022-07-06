@@ -29,8 +29,7 @@ import os
 import plotly.express as px
 from datetime import date
 from streamlit_pages.streamlit_pages import MultiPage
-today = date.today()
-today=today.strftime('%d-%m-%y')
+
 import pytz
 utc = pytz.utc
 utc.zone
@@ -82,38 +81,42 @@ st.markdown('<div style="text-align:left; font-size:14px;font-family: Oswald;col
 
 dni=st.text_input("Ingresar DNI:")
 if dni:
-    cell = sheet2.find(dni) 
-    row_number = cell.row
+    try:
+      cell = sheet2.find(dni) 
+      row_number = cell.row
 
-    nombre=sheet2.acell('C'+str(row_number)).value
-    apellido=sheet2.acell('D'+str(row_number)).value
-    dni=sheet2.acell('E'+str(row_number)).value
-    celu=sheet2.acell('F'+str(row_number)).value 
-    mail= sheet2.acell('G'+str(row_number)).value 
-    send_url = "http://api.ipstack.com/200.41.127.18?access_key=c4db03018a0162547aaabccbd952b16f"
-    geo_req = requests.get(send_url)
-    geo_json = json.loads(geo_req.text)
-    latitude = geo_json['latitude']
-    longitude = geo_json['longitude']
-    city = geo_json['city']
-    #st.write(geo_json)
-    import numpy as np
+      nombre=sheet2.acell('C'+str(row_number)).value
+      apellido=sheet2.acell('D'+str(row_number)).value
+      dni=sheet2.acell('E'+str(row_number)).value
+      celu=sheet2.acell('F'+str(row_number)).value 
+      mail= sheet2.acell('G'+str(row_number)).value 
+      send_url = "http://api.ipstack.com/200.41.127.18?access_key=c4db03018a0162547aaabccbd952b16f"
+      geo_req = requests.get(send_url)
+      geo_json = json.loads(geo_req.text)
+      latitude = geo_json['latitude']
+      longitude = geo_json['longitude']
+      city = geo_json['city']
+      #st.write(geo_json)
+      import numpy as np
 
-    g = geocoder.ip('me')
-    lat_ad=g.latlng[0]
-    lon_ad=g.latlng[1]
+      g = geocoder.ip('me')
+      lat_ad=g.latlng[0]
+      lon_ad=g.latlng[1]
 
-    #df=pd.DataFrame(g.latlng)
-    #st.table(df)
-    #st.write(latitude)
-    #st.write(longitude) 
-    
-    ubi=[-34.4351289,-58.9266003]
-    m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
+      #df=pd.DataFrame(g.latlng)
+      #st.table(df)
+      #st.write(latitude)
+      #st.write(longitude) 
+
+      ubi=[-34.4351289,-58.9266003]
+      m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
 
 
-    #folium.Marker(location=ubi, popup =  nombre).add_to(m)
-    folium.CircleMarker(location=ubi,radius=30, fill_color='green',tooltip=folium.Tooltip(nombre, permanent=True)).add_to(m) 
-    #folium_static(m)
-    sheet3.append_row([datetime.now(argentina).strftime('%d-%m-%Y %H:%M'),nombre,apellido,dni,celu,mail])
-    st.warning(nombre+' '+apellido+ 'su acceso ha sido registrado, gracias')
+      #folium.Marker(location=ubi, popup =  nombre).add_to(m)
+      folium.CircleMarker(location=ubi,radius=30, fill_color='green',tooltip=folium.Tooltip(nombre, permanent=True)).add_to(m) 
+      #folium_static(m)
+      sheet3.append_row([datetime.now(argentina).strftime('%d-%m-%Y %H:%M'),nombre,apellido,dni,celu,mail])
+      st.warning(nombre+' '+apellido+ 'su acceso ha sido registrado, gracias')
+   except gspread.exceptions.CellNotFound:
+
+    st.warning('Verificar DNI')
