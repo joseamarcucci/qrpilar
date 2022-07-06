@@ -27,7 +27,8 @@ from streamlit_folium import folium_static
 import folium
 import plotly.express as px
 from streamlit_pages.streamlit_pages import MultiPage
-
+today = date.today()
+#today=today.strftime('%d-%m-%y')
 
 import geocoder
 from bs4 import BeautifulSoup
