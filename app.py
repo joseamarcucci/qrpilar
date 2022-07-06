@@ -29,7 +29,7 @@ import plotly.express as px
 from datetime import date
 from streamlit_pages.streamlit_pages import MultiPage
 today = date.today()
-#today=today.strftime('%d-%m-%y')
+today=today.strftime('%d-%m-%y')
 
 import geocoder
 from bs4 import BeautifulSoup
@@ -107,4 +107,4 @@ def get_location():
     return location_data
 
 
-st.write(get_location())
+#st.write(get_location())
