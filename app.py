@@ -52,7 +52,7 @@ sheet3 = gclient.open('docentesp').worksheet('asistencia')
 from googleapiclient.discovery import build
 import requests
 import json
-dni=st.text_input("DNI")
+dni=st.text_input("Ingresar DNI:")
 if dni:
     cell = sheet2.find(dni) 
     row_number = cell.row
@@ -75,10 +75,10 @@ if dni:
     lat_ad=g.latlng[0]
     lon_ad=g.latlng[1]
 
-    df=pd.DataFrame(g.latlng)
+    #df=pd.DataFrame(g.latlng)
     #st.table(df)
-    st.write(latitude)
-    st.write(longitude) 
+    #st.write(latitude)
+    #st.write(longitude) 
     
     ubi=[-34.4351289,-58.9266003]
     m = folium.Map(location=ubi, zoom_start=17,zoom_control=False,                scrollWheelZoom=False,                dragging=False)
