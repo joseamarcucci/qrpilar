@@ -117,6 +117,6 @@ if dni:
       #folium_static(m)
       sheet3.append_row([datetime.now(argentina).strftime('%d-%m-%Y %H:%M'),nombre,apellido,dni,celu,mail])
       st.warning(nombre+' '+apellido+ 'su acceso ha sido registrado, gracias')
-   except gspread.exceptions.CellNotFound:
+     except gspread.exceptions.CellNotFound:
 
-    st.warning('Verificar DNI')
+      st.warning('Verificar DNI')
