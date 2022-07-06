@@ -62,8 +62,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 import pytz
-utc = pytz.utc
-utc.zone
+
 argentina = pytz.timezone('America/Argentina/Buenos_Aires')
 import geocoder
 from bs4 import BeautifulSoup
