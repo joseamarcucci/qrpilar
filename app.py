@@ -75,7 +75,7 @@ st.markdown('<div style="text-align:left; font-size:14px;border-bottom:1px solid
 #st.write('<style>div.row-widget.stRadio> div{flex-direction:row;}</style>', unsafe_allow_html=True)
 from datetime import timezone, datetime, timedelta
 d = datetime(2009, 4, 19, 21, 12, tzinfo=timezone(timedelta(hours=-2)))
-st.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M'))
+st.write(datetime.now().strftime('%Y-%m-%d %H:%M'))
 dni=st.text_input("Ingresar DNI:")
 if dni:
     cell = sheet2.find(dni) 
