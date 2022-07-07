@@ -147,7 +147,7 @@ if dni:
       ubi=[-34.4351289,-58.9266003]
 
       sheet3.append_row([datetime.now(argentina).strftime('%d-%m-%Y %H:%M'),nombre,apellido,dni,celu,mail])
-      st.warning(nombre+' '+apellido+ 'su acceso ha sido registrado: '+datetime.now(argentina).strftime('%d-%m-%Y %H:%M'+', gracias'))
+      st.warning(nombre+' '+apellido+ ' su acceso ha sido registrado: '+datetime.now(argentina).strftime('%d-%m-%Y %H:%M'+', gracias'))
     except gspread.exceptions.CellNotFound:
 
       st.warning('Verificar DNI')
